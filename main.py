@@ -28,8 +28,7 @@ denc = quote_plus(device_id)
 auth = (f"{denc}@{app_id}", device_password)
 
 path = f"/v1/status"
-query = "?" + urlencode(dict(data_schema=data_schema))
-url = urljoin(endpoint, path + query)
+url = urljoin(endpoint, path)
 
 print(url)
 
@@ -72,11 +71,16 @@ try:
                 "hum": hum,
                 "batt": batt,
             }
+            params = {
+                "data_schema": data_schema,
+                "as": mac,
+            }
             res = requests.post(url,
                                 json=status,
                                 auth=auth,
                                 headers={"Content-Type": "application/json"},
-                                params={"as": mac})
+                                params=params
+            )
             print("Result: %s" % res)
 
 
