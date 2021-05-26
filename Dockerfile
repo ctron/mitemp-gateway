@@ -1,7 +1,7 @@
 
 FROM docker.io/library/python:3
 
-LABEL org.opencontainers.image.source="https://github.com/ctron/mitemp-agent"
+LABEL org.opencontainers.image.source="https://github.com/ctron/mitemp-gateway"
 
 RUN pip install pybluez
 COPY requirements.txt ./
