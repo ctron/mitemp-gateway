@@ -64,7 +64,7 @@ try:
             temp = int(data_str[22:26], 16) / 10
             hum = int(data_str[26:28], 16)
             batt = int(data_str[28:30], 16)
-            print("%s - Device: %s Temp: %sc Humidity: %s%% Batt: %s%%" % \
+            print("%s - Device: %s Temp: %s°C Humidity: %s%% Batt: %s%%" % \
                   (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), mac, temp, hum, batt))
 
             status = {
@@ -72,7 +72,11 @@ try:
                 "hum": hum,
                 "batt": batt,
             }
-            res = requests.post(url, json=status, auth=auth, headers={"Content-Type": "application/json"})
+            res = requests.post(url,
+                                json=status,
+                                auth=auth,
+                                headers={"Content-Type": "application/json"},
+                                params={"as": mac})
             print("Result: %s" % res)
 
 
