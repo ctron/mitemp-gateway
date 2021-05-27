@@ -21,7 +21,7 @@ app_id = os.getenv('APP_ID')
 device_id = quote(os.environ['DEVICE_ID'])
 device_password = os.getenv('DEVICE_PASSWORD')
 # Use 0 for hci0
-dev_id = os.getenv('DEVICE_PASSWORD', 0)
+dev_id = os.getenv('HCI_NUM', 0)
 
 endpoint = os.getenv('ENDPOINT', "https://http.sandbox.drogue.cloud")
 print(endpoint)
