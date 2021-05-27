@@ -20,6 +20,8 @@ data_schema = os.getenv('DATA_SCHEMA', "vorto:ctron.mitemp.status:1.0.0")
 app_id = os.getenv('APP_ID')
 device_id = quote(os.environ['DEVICE_ID'])
 device_password = os.getenv('DEVICE_PASSWORD')
+# Use 0 for hci0
+dev_id = os.getenv('DEVICE_PASSWORD', 0)
 
 endpoint = os.getenv('ENDPOINT', "https://http.sandbox.drogue.cloud")
 print(endpoint)
@@ -32,18 +34,6 @@ url = urljoin(endpoint, path)
 
 print(url)
 
-#    status = {
-#        "timestamp": math.trunc(time.time() * 1000.0),
-#        "rate_send": t[0],
-#        "rate_receive": t[1],
-#        "bytes_received": fc.bytes_received,
-#        "bytes_sent": fc.bytes_sent
-#    }
-#    print(json.dumps(status))
-#    res = requests.post(url, json=status, auth=auth, headers={"Content-Type": "application/json"})
-
-# Use 0 for hci0
-dev_id = 0
 toggle_device(dev_id, True)
 
 try:
@@ -80,7 +70,7 @@ try:
                                 auth=auth,
                                 headers={"Content-Type": "application/json"},
                                 params=params
-            )
+                                )
             print("Result: %s" % res)
 
 

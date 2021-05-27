@@ -72,10 +72,10 @@ This is a small agent, publishing Mi Temp 2 telemetry to a [Drogue IoT](https://
       }'
       ~~~
 
-    * Create a device per sensor, using the Bluetooth MAC
+    * Create a device per sensor, using the Bluetooth MAC (e.g. `12:34:56:78:9A:BC`)
     
       ~~~
-      drg create device --app my-app <sensor> --spec '{
+      drg create device --app my-app '12:34:56:78:9A:BC' --spec '{
         "gatewaySelector": {
           "matchNames": [
             "mitemp-gateway-ctron"
