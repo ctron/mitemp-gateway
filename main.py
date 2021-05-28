@@ -16,6 +16,9 @@ from bluetooth_utils import (toggle_device, enable_le_scan,
 print("Starting up...")
 
 data_schema = os.getenv('DATA_SCHEMA', "vorto:ctron.mitemp.status:1.0.0")
+geolocation = os.getenv('GEOLOCATION')
+if geolocation is not None:
+    geolocation = json.loads(geolocation)
 
 app_id = os.getenv('APP_ID')
 device_id = quote(os.environ['DEVICE_ID'])
@@ -60,6 +63,7 @@ try:
                 "temp": temp,
                 "hum": hum,
                 "batt": batt,
+                "geoloc": geolocation,
             }
             params = {
                 "data_schema": data_schema,
