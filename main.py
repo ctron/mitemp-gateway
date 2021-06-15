@@ -15,7 +15,7 @@ from bluetooth_utils import (toggle_device, enable_le_scan,
 
 print("Starting up...")
 
-data_schema = os.getenv('DATA_SCHEMA', "vorto:ctron.mitemp.status:1.0.0")
+data_schema = os.getenv('DATA_SCHEMA', "urn:drogue:iot:temperature") # vorto:ctron.mitemp.status:1.0.0
 geolocation = os.getenv('GEOLOCATION')
 if geolocation is not None:
     geolocation = json.loads(geolocation)
