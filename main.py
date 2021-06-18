@@ -57,7 +57,7 @@ try:
             hum = int(data_str[26:28], 16)
             batt = int(data_str[28:30], 16)
             print("%s - Device: %s Temp: %s°C Humidity: %s%% Batt: %s%%" % \
-                  (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), mac, temp, hum, batt))
+                  (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), mac, temp, hum, batt), flush=True)
 
             status = {
                 "temp": temp,
@@ -75,7 +75,7 @@ try:
                                 headers={"Content-Type": "application/json"},
                                 params=params
                                 )
-            print("Result: %s" % res)
+            print("Result: %s" % res, flush=True)
 
 
     # Called on new LE packet
