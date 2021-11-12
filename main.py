@@ -69,13 +69,17 @@ try:
                 "data_schema": data_schema,
                 "as": mac,
             }
-            res = requests.post(url,
-                                json=status,
-                                auth=auth,
-                                headers={"Content-Type": "application/json"},
-                                params=params
-                                )
-            print("Result: %s" % res, flush=True)
+            # noinspection PyBroadException
+            try:
+                res = requests.post(url,
+                                    json=status,
+                                    auth=auth,
+                                    headers={"Content-Type": "application/json"},
+                                    params=params
+                                    )
+                print("Result: %s" % res, flush=True)
+            except Exception:
+                pass
 
 
     # Called on new LE packet
