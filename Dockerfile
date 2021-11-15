@@ -1,5 +1,5 @@
 
-FROM docker.io/library/python:3
+FROM docker.io/library/python:3.9
 
 LABEL org.opencontainers.image.source="https://github.com/ctron/mitemp-gateway"
 
