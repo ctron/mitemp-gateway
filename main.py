@@ -78,7 +78,7 @@ try:
                                     params=params
                                     )
                 print("Result: %s" % res, flush=True)
-            except Exception:
+            except:
                 pass
 
 
